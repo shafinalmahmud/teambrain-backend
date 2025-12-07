@@ -1,3 +1,4 @@
+STEP A — MEMORY ROUTING ENGINE (FULL DECISION LOGIC)
 🔥 1. CORE INPUT CLASSIFICATION ENGINE
 
 Every incoming message (user → system) passes through a classifier:
