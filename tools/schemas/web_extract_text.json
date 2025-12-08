@@ -1,0 +1,31 @@
+{
+  "name": "web_extract_text",
+  "description": "Extract clean text from HTML",
+  "input_schema": {
+    "type": "object",
+    "required": ["html"],
+    "properties": {
+      "html": { "type": "string" }
+    }
+  },
+  "output_schema": {
+    "type": "object",
+    "required": ["text"],
+    "properties": {
+      "text": { "type": "string" }
+    }
+  },
+  "error_schema": {
+    "type": "object",
+    "properties": {
+      "error": { "type": "string" },
+      "reason": { "type": "string" }
+    }
+  },
+  "metadata": {
+    "version": "1.0.0",
+    "permissions": ["Executor"],
+    "rate_limit": { "max_calls": 20, "per_seconds": 60 },
+    "safety": { "disallowed_topics": [], "sensitive_fields": [] }
+  }
+}

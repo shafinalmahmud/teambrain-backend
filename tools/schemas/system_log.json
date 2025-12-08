@@ -1,0 +1,34 @@
+{
+  "name": "system_log",
+  "description": "Log a message to system logs",
+  "input_schema": {
+    "type": "object",
+    "required": ["message", "level"],
+    "properties": {
+      "message": { "type": "string" },
+      "level": {
+        "type": "string",
+        "enum": ["info", "warning", "error"]
+      }
+    }
+  },
+  "output_schema": {
+    "type": "object",
+    "properties": {
+      "success": { "type": "boolean" }
+    }
+  },
+  "error_schema": {
+    "type": "object",
+    "properties": {
+      "error": { "type": "string" },
+      "reason": { "type": "string" }
+    }
+  },
+  "metadata": {
+    "version": "1.0.0",
+    "permissions": ["Manager", "Guardian"],
+    "rate_limit": { "max_calls": 100, "per_seconds": 60 },
+    "safety": { "disallowed_topics": [], "sensitive_fields": [] }
+  }
+}

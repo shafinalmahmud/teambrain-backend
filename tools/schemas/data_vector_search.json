@@ -1,0 +1,48 @@
+{
+  "name": "data_vector_search",
+  "description": "Search the vector database",
+  "input_schema": {
+    "type": "object",
+    "required": ["embedding", "top_k"],
+    "properties": {
+      "embedding": {
+        "type": "array",
+        "items": { "type": "number" }
+      },
+      "top_k": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 20
+      }
+    }
+  },
+  "output_schema": {
+    "type": "object",
+    "properties": {
+      "results": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": { "type": "string" },
+            "score": { "type": "number" },
+            "metadata": { "type": "object" }
+          }
+        }
+      }
+    }
+  },
+  "error_schema": {
+    "type": "object",
+    "properties": {
+      "error": { "type": "string" },
+      "reason": { "type": "string" }
+    }
+  },
+  "metadata": {
+    "version": "1.0.0",
+    "permissions": ["Analyst", "Executor"],
+    "rate_limit": { "max_calls": 20, "per_seconds": 60 },
+    "safety": { "disallowed_topics": [], "sensitive_fields": [] }
+  }
+}

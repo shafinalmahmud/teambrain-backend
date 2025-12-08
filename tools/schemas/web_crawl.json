@@ -1,0 +1,31 @@
+{
+  "name": "web_crawl",
+  "description": "Crawl a webpage and return raw HTML",
+  "input_schema": {
+    "type": "object",
+    "required": ["url"],
+    "properties": {
+      "url": { "type": "string", "format": "uri" }
+    }
+  },
+  "output_schema": {
+    "type": "object",
+    "required": ["html"],
+    "properties": {
+      "html": { "type": "string", "description": "Raw HTML" }
+    }
+  },
+  "error_schema": {
+    "type": "object",
+    "properties": {
+      "error": { "type": "string" },
+      "reason": { "type": "string" }
+    }
+  },
+  "metadata": {
+    "version": "1.0.0",
+    "permissions": ["Executor"],
+    "rate_limit": { "max_calls": 5, "per_seconds": 60 },
+    "safety": { "disallowed_topics": [], "sensitive_fields": [] }
+  }
+}

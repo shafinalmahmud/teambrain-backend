@@ -1,0 +1,31 @@
+{
+  "name": "file_read",
+  "description": "Read a file from disk",
+  "input_schema": {
+    "type": "object",
+    "required": ["path"],
+    "properties": {
+      "path": { "type": "string" }
+    }
+  },
+  "output_schema": {
+    "type": "object",
+    "required": ["content"],
+    "properties": {
+      "content": { "type": "string" }
+    }
+  },
+  "error_schema": {
+    "type": "object",
+    "properties": {
+      "error": { "type": "string" },
+      "reason": { "type": "string" }
+    }
+  },
+  "metadata": {
+    "version": "1.0.0",
+    "permissions": ["Executor"],
+    "rate_limit": { "max_calls": 30, "per_seconds": 60 },
+    "safety": { "disallowed_topics": [], "sensitive_fields": [] }
+  }
+}

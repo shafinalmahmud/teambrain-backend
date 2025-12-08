@@ -1,0 +1,42 @@
+{
+  "name": "web_search",
+  "description": "Search the web using a search engine",
+  "input_schema": {
+    "type": "object",
+    "required": ["query", "num_results"],
+    "properties": {
+      "query": { "type": "string", "minLength": 3, "description": "User search query" },
+      "num_results": { "type": "integer", "minimum": 1, "maximum": 20 }
+    }
+  },
+  "output_schema": {
+    "type": "object",
+    "required": ["results"],
+    "properties": {
+      "results": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "title": { "type": "string" },
+            "url": { "type": "string" },
+            "snippet": { "type": "string" }
+          }
+        }
+      }
+    }
+  },
+  "error_schema": {
+    "type": "object",
+    "properties": {
+      "error": { "type": "string" },
+      "reason": { "type": "string" }
+    }
+  },
+  "metadata": {
+    "version": "1.0.0",
+    "permissions": ["Strategist", "Analyst", "Executor"],
+    "rate_limit": { "max_calls": 10, "per_seconds": 60 },
+    "safety": { "disallowed_topics": [], "sensitive_fields": [] }
+  }
+}

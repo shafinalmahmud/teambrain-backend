@@ -1,0 +1,32 @@
+{
+  "name": "email_send",
+  "description": "Send an email",
+  "input_schema": {
+    "type": "object",
+    "required": ["to", "subject", "body"],
+    "properties": {
+      "to": { "type": "string" },
+      "subject": { "type": "string" },
+      "body": { "type": "string" }
+    }
+  },
+  "output_schema": {
+    "type": "object",
+    "properties": {
+      "success": { "type": "boolean" }
+    }
+  },
+  "error_schema": {
+    "type": "object",
+    "properties": {
+      "error": { "type": "string" },
+      "reason": { "type": "string" }
+    }
+  },
+  "metadata": {
+    "version": "1.0.0",
+    "permissions": ["Executor"],
+    "rate_limit": { "max_calls": 5, "per_seconds": 60 },
+    "safety": { "disallowed_topics": [], "sensitive_fields": ["to"] }
+  }
+}

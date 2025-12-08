@@ -1,0 +1,36 @@
+{
+  "name": "file_summarize",
+  "description": "Summarize file content",
+  "input_schema": {
+    "type": "object",
+    "required": ["content", "max_tokens"],
+    "properties": {
+      "content": { "type": "string" },
+      "max_tokens": {
+        "type": "integer",
+        "minimum": 50,
+        "maximum": 2000
+      }
+    }
+  },
+  "output_schema": {
+    "type": "object",
+    "required": ["summary"],
+    "properties": {
+      "summary": { "type": "string" }
+    }
+  },
+  "error_schema": {
+    "type": "object",
+    "properties": {
+      "error": { "type": "string" },
+      "reason": { "type": "string" }
+    }
+  },
+  "metadata": {
+    "version": "1.0.0",
+    "permissions": ["Executor"],
+    "rate_limit": { "max_calls": 15, "per_seconds": 60 },
+    "safety": { "disallowed_topics": [], "sensitive_fields": [] }
+  }
+}

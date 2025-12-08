@@ -1,0 +1,31 @@
+{
+  "name": "code_run_js",
+  "description": "Execute JavaScript code",
+  "input_schema": {
+    "type": "object",
+    "required": ["code"],
+    "properties": {
+      "code": { "type": "string" }
+    }
+  },
+  "output_schema": {
+    "type": "object",
+    "properties": {
+      "stdout": { "type": "string" },
+      "stderr": { "type": "string" }
+    }
+  },
+  "error_schema": {
+    "type": "object",
+    "properties": {
+      "error": { "type": "string" },
+      "reason": { "type": "string" }
+    }
+  },
+  "metadata": {
+    "version": "1.0.0",
+    "permissions": ["Executor"],
+    "rate_limit": { "max_calls": 8, "per_seconds": 60 },
+    "safety": { "disallowed_topics": [], "sensitive_fields": [] }
+  }
+}
